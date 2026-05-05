@@ -1,0 +1,208 @@
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: clamp(4rem, 8vh, 6rem);
+  padding-bottom: clamp(3rem, 5vh, 4rem);
+  overflow: hidden;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: clamp(3rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.left { display: flex; flex-direction: column; gap: 1.35rem; }
+
+.industryRow { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.industryTag { font-size: 0.8rem; font-weight: 500; padding: 5px 14px; letter-spacing: 0.06em; }
+
+.nameBlock { display: flex; flex-direction: column; gap: 0.35rem; }
+.helloLabel { color: var(--color-text-muted); font-size: var(--text-sm); }
+.name {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 6.5vw, 5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--color-text-primary);
+}
+.roleSubtitle {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  letter-spacing: 0.07em;
+  color: var(--color-wine);
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.tagline {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+  max-width: 540px;
+}
+
+/* ── TILES ── */
+.projectTiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.875rem 1rem;
+  border-radius: 9px;
+  border: 1px solid var(--color-border);
+  background: rgba(255,255,255,0.9);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.18s ease;
+  position: relative;
+  overflow: hidden;
+}
+.tile::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2.5px;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.tile:hover {
+  border-color: var(--color-border-strong);
+  box-shadow: 0 3px 14px rgba(28,26,24,0.09);
+  transform: translateY(-2px);
+}
+.tile:hover::after { opacity: 1; }
+
+.tileIdentity { display: flex; align-items: center; gap: 0.5rem; }
+.tileDot { width: 7px; height: 7px; border-radius: 999px; flex-shrink: 0; }
+.tileCompany {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+.tileRole {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  line-height: 1.3;
+  padding-left: 1.25rem;
+}
+.tileBottom {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  padding-left: 1.25rem;
+}
+.tileMetric {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
+.tileMetricLabel {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* CTAs */
+.ctaRow { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+
+.contactRow { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+.contactLink {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.02em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: transparent;
+  transition: color var(--transition-fast);
+}
+.contactLink:hover { color: var(--color-wine); text-decoration-color: var(--color-wine); }
+.contactDot { color: var(--color-border-strong); }
+
+/* PHOTO */
+.right { display: flex; justify-content: flex-end; align-items: center; }
+.photoZone { position: relative; width: 100%; max-width: 380px; padding: 36px 40px 36px 12px; }
+.photoFrame { position: relative; width: 100%; }
+.photoAccent {
+  position: absolute; top: -14px; right: -14px;
+  width: 85%; height: 85%;
+  background: var(--color-blue-light);
+  border-radius: 20px; z-index: 0;
+}
+.photo {
+  position: relative; z-index: 1;
+  width: 100%; height: 480px;
+  object-fit: cover; object-position: center top;
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  display: block;
+}
+.roleBadge {
+  position: absolute; bottom: 26px; left: -14px; z-index: 3;
+  background: white;
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
+  box-shadow: var(--shadow-md);
+}
+.roleBadgeText {
+  font-family: var(--font-mono);
+  font-size: 0.72rem; font-weight: 500;
+  color: var(--color-text-primary);
+  letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap;
+}
+
+/* DOODLES */
+.doodle { position: absolute; pointer-events: none; }
+.doodleStarLg { top: -4px; right: 0; width: 34px; height: 34px; opacity: 0.5; }
+.doodleStarSm { bottom: 120px; right: -4px; width: 20px; height: 20px; opacity: 0.45; }
+.doodleStarXs { top: 80px; right: 10px; width: 12px; height: 12px; opacity: 0.35; }
+.doodleWriggle { bottom: 24px; right: -8px; width: 64px; height: 28px; opacity: 0.4; transform: rotate(-8deg); }
+
+/* SCROLL */
+.scrollHint {
+  position: absolute; bottom: 1.5rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+  animation: scrollBounce 2s ease-in-out infinite; z-index: 2;
+}
+.scrollLine { width: 1px; height: 32px; background: linear-gradient(to bottom, var(--color-border-strong), transparent); }
+.scrollText { font-family: var(--font-mono); font-size: 0.58rem; color: var(--color-text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+@keyframes scrollBounce {
+  0%,100% { opacity: 0.5; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 1; transform: translateX(-50%) translateY(4px); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .inner { grid-template-columns: 1fr; }
+  .right { order: -1; justify-content: center; }
+  .photo { height: 360px; }
+  .projectTiles { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .photo { height: 280px; }
+  .projectTiles { grid-template-columns: 1fr; }
+  .scrollHint { display: none; }
+}
