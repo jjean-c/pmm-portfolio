@@ -8,20 +8,20 @@ const PROJECTS = [
     company: 'Coral',
     role: 'New product category GTM',
     industry: 'Web3',
-    headline: 'GTM for a first-of-kind NFT wallet in Southeast Asia',
+    headline: 'GTM for a first-of-kind NFT wallet in Thailand',
     metric: '$3.5M',
     metricLabel: 'first-year revenue',
     tags: ['Web3', '0→1 GTM', 'Wallet Launch'],
     type: 'case-study',
     color: '#7AAEC8',
-    context: 'Coral was building the first NFT wallet for mainstream consumers in Southeast Asia — a technically complex product in a category most people had never heard of.',
+    context: 'Coral was building the first NFT wallet for mainstream consumers in Thailand, a technically complex product in a category most people had never heard of.',
     myRole: 'Led end-to-end GTM: positioning, messaging, launch sequencing, and campaign execution across product and growth.',
     whatIDid: [
       'Defined positioning framework translating NFT/Web3 concepts for non-crypto audiences',
       'Built and executed launch playbook across owned, earned, and partnership channels',
-      'Led the Port FC digital collectibles campaign, scaling to 6,000 users',
+      'Led multiple B2B2C campaigns with restaurants, events, and sports including the Port FC digital collectibles campaign',
     ],
-    outcome: '$3.5M first-year revenue. Established Coral as the leading consumer NFT wallet in SEA.',
+    outcome: '10k NFTs minted. Established Coral as a unique collectible and loyalty platform.',
     caseStudyUrl: 'https://www.notion.so/Helping-Products-Find-Their-People-28bca4d4114e80b5a898edd7e7cc77fb',
     image: null,
   },
@@ -36,11 +36,11 @@ const PROJECTS = [
     tags: ['Campaign', 'Digital Collectibles', 'Community'],
     type: 'case-study',
     color: '#8AA88A',
-    context: 'Thai Port FC wanted to deepen fan engagement through digital collectibles — a format their fanbase had never encountered before.',
-    myRole: 'Owned campaign strategy and execution from concept through launch, working cross-functionally with Coral product and Port FC marketing teams.',
+    context: 'Thai Port FC wanted to deepen fan engagement and increase ticket sales through digital collectibles, a format their fanbase had never encountered before.',
+    myRole: 'Owned campaign strategy and execution from concept through launch, working cross-functionally with product and Port FC marketing teams.',
     whatIDid: [
       'Reframed digital collectibles as fan identity, not crypto investment',
-      'Designed tiered drop mechanics to drive FOMO and repeat engagement',
+      'Designed tiered drop mechanics to drive scarcity and repeat engagement',
       'Coordinated launch across club social, stadium activations, and in-app moments',
     ],
     outcome: '6,000 users acquired within the campaign window. Highest single-campaign user acquisition for Coral.',
@@ -58,14 +58,14 @@ const PROJECTS = [
     tags: ['Positioning', 'AI / SaaS', 'Messaging'],
     type: 'case-study',
     color: '#9B8EC4',
-    context: 'LineWise (YC-backed) had a strong product but messaging that buried the value prop in technical language — costing them qualified inbound.',
-    myRole: 'First PMM hire — led positioning audit and full messaging reframe, working with the founder and engineering team.',
+    context: 'LineWise (YC) had a strong product but messaging that buried the value prop in technical language, costing them B2B conversion.',
+    myRole: 'First marketing hire, led positioning and full messaging reframe, working with the founders and the technical team.',
     whatIDid: [
       'Ran customer interviews to extract the language buyers actually used to describe their pain',
       'Rewrote homepage, product pages, and key CTAs around outcome-led positioning',
-      'A/B tested headline variants to validate lift before full rollout',
+      'Built product and founder branding',
     ],
-    outcome: '30% lift in inbound conversion rate within 6 weeks of launch.',
+    outcome: '30% lift in inbound conversion rate.',
     caseStudyUrl: 'https://www.notion.so/PMM-Positioning-Experiment-Rollstack-328ca4d4114e802eac2dc117f6128638',
     image: null,
   },
@@ -80,6 +80,7 @@ const PROJECTS = [
     tags: ['Vibe Coding', 'AI Build', 'Productivity'],
     type: 'build',
     color: '#7A2535',
+    caseStudyUrl: '/work/tarang',
     context: 'A personal project exploring how AI can help people build daily routines aligned with their actual values — not just a to-do list.',
     myRole: 'Solo builder — concept, design, and development using AI-assisted coding tools.',
     whatIDid: [
@@ -190,9 +191,16 @@ export default function Work() {
 
                     <div className={styles.expandCta}>
                       {isBuild ? (
-                        <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="btn btn--primary">
-                          View Live ↗
-                        </a>
+                        <>
+                          <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="btn btn--primary">
+                            View Live ↗
+                          </a>
+                          {p.caseStudyUrl && (
+                            <Link to={p.caseStudyUrl} className="btn btn--secondary">
+                              Case Study →
+                            </Link>
+                          )}
+                        </>
                       ) : (
                         <Link to={`/work/${p.id}`} className="btn btn--secondary">
                           Read Case Study →
